@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+    <div class="container">
+
+    <h1> Таблица умножения до: {{ id }} </h1>
+
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th></th>
+
+                    {% for row in 1 .. id  %}
+                        <th>
+                        {{ row }}
+                        </th>
+                    {% endfor %}
+
+                </tr>
+
+            </thead>
+
+
+            {% for row in 1 .. id  %}
+
+                <tr>
+
+                    <td>{{ row }}</td>
+                    {% for col in 1 .. id  %}
+                        <td>{{ row * col }}</td>
+                    {% endfor %}
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+
+
+
+    </div>
+</body>
+</html>
