@@ -1,15 +1,24 @@
 <html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/post_card.css?ver{{ random() }}">
+</head>
+
 <body>
 
-<h1>Post</h1>
+
+    <h1>Post</h1>
 
     {% for item in data %}
 
-        <h2>Запись № {{ item.id }} - {{ item.title }} - {{ item.content }} </h2>
-
-
+            <div class = "post_card">
+                <h2>Запись № {{ item.id }} - {{ item.title }} - {{ item.content }} </h2>
+                <a href="{{ path('app_post_edit', {'id': item.id}) }}">EDIT</a>
+           </div>
 
     {% endfor %}
+
+
 
 </body>
 </html>

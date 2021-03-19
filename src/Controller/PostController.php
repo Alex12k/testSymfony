@@ -22,11 +22,7 @@ class PostController
     private EntityManagerInterface $em;
     private FormFactoryInterface $formFactory;
 
-    public function __construct(
-        Environment $twig,
-        EntityManagerInterface $em,
-        FormFactoryInterface $formFactory
-    )
+    public function __construct(Environment $twig, EntityManagerInterface $em, FormFactoryInterface $formFactory)
     {
         $this->twig = $twig;
         $this->em = $em;
@@ -38,6 +34,20 @@ class PostController
      * @Route("/blog/", name="app_blog_controller")
      */
     public function index(Request $request)
+    {
+
+        $repository = $this->em->getRepository(Post::class);
+        $data       = $repository->activePosts();
+
+        $content = $this->twig->render("post.html.twig", ['data' => $data]);
+        return new Response($content);
+    }
+
+
+    /**
+     * @Route("/archive/", name="app_archive")
+     */
+    public function allPosts(Request $request)
     {
 
         $repository = $this->em->getRepository(Post::class);
@@ -53,13 +63,19 @@ class PostController
      */
     public function edit(Request $request)
     {
+
         $repository = $this->em->getRepository(Post::class);
         $data       = $repository->find($request->attributes->get('id'));
+
+
         if($data === null){
-             throw new NotFoundHttpException('error post not found');
+             throw new NotFoundHttpException('Ошибка, пост не найден');
         }
 
+
+
         $form = $this->formFactory->create(PostForm::class, $data);
+
 
         $form->handleRequest($request);
 
@@ -73,7 +89,9 @@ class PostController
 
         $content = $this->twig->render("post_edit.html.twig", ['form' => $form->createView()]);
         return new Response($content);
-    }
+
+
+    } // end edit
 
 
 }

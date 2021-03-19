@@ -1,0 +1,5 @@
+/*-----------------POST CARD---------------*/
+
+.post_card, .post_card a{display: flex;flex-wrap: wrap;}
+.post_card h2{margin-right: 20px;}
+.post_card a {align-items: center;}

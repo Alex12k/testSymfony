@@ -1,13 +1,28 @@
 <html>
+
+
+
+<head>
+        <link rel="stylesheet" type="text/css" href="/style.css?ver{{ random() }}">
+</head>
+
+
 <body>
+
+
 
     {{ form_start(form) }}
 
-        {{ form_row(form.title) }}
+        {{      form_row(form.title)        }}
+        {{      form_row(form.content)      }}
+        {{      form_row(form.activeForm)   }}
 
         <button type="submit">  submit </button>
 
-    {{ form_end(form)   }}
+
+    {{ form_end(form)  }}
+
+
 
 
 </body>

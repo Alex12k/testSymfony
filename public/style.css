@@ -1,3 +1,10 @@
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
 h1{
     color: #ff2222;
     width: 100%;
@@ -75,3 +82,27 @@ tbody tr td:first-child{
     background: #59b759;
     color: white;
 }
+
+
+
+/*-----------------POST EDIT---------------*/
+
+form{
+    margin-top:100px;
+    max-width: 450px;
+    border: 1px solid #e7e7e7;
+    padding: 20px;
+    border-radius: 20px;
+    background: #eaeaea;
+
+}
+form div {margin-top: 20px;}
+
+#post_form_activeForm{margin-top: 5px; display: flex;}
+#post_form_activeForm div{margin-right:20px; }
+
+div input, div textarea{width: 100%; margin-top: 5px; font-size: 18px; padding: 15px;}
+div textarea{height: 150px;}
+form div label{margin-right: 20px; font-size: 28px; color: #0b599c;}
+
+button{margin-top: 20px; font-size: 18px; }
